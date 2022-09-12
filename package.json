@@ -1,0 +1,20 @@
+{
+  "name": "blog-backend-postgres",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "psql": "heroku run psql -h ec2-44-205-63-142.compute-1.amazonaws.com -p 5432 -U omxgjncrjsjbas d2cm2sba6qja7i -a blog-backend-pg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnmal-dev/blog-backend-postgres.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnmal-dev/blog-backend-postgres/issues"
+  },
+  "homepage": "https://github.com/johnmal-dev/blog-backend-postgres#readme"
+}
