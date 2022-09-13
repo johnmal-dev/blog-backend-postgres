@@ -1,21 +1,52 @@
-###
+### ADD A BLOG
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5tYWwiLCJpZCI6MSwiaWF0IjoxNjYzMDcyOTc1fQ.wOXU6JoUcNHhcKEBXK5EBxtCu0YQ8B14rq_Y6fLx22A
 
 {
   "author": "Wes Bos",
-  "title": "Parity Purchasing Power",
-  "likes": 20
+  "title": "Tasty Treats",
+  "url": "tastytreats.com",
+  "likes": 25
 }
 
-###
+### GET ALL BLOGS
+GET http://localhost:3001/api/blogs/
+Content-Type: application/json
+
+### DELETE A BLOG BY ID
 DELETE http://localhost:3001/api/blogs/1123
 Content-Type: application/json
 
-###
+### UPDATE A BLOG BY ID
 PUT http://localhost:3001/api/blogs/2
 Content-Type: application/json
 
  {
   "likes": 4
+ }
+
+### GET ALL USERS
+GET http://localhost:3001/api/users
+
+### ADD A NEW USER
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+ {
+  "name": "John Malapit",
+  "username": "johnmal",
+  "password": "john123"
+ }
+
+### GET USER BY ID
+GET http://localhost:3001/api/users/3
+
+### LOG IN
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+ {
+  "username": "johnmal",
+  "password": "john123"
  }
