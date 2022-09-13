@@ -28,38 +28,17 @@ router.get('/:id', async (req, res) => {
   res.json(user);
 });
 
-// router.get('/', async (req, res) => {
-//   const blogs = await Blog.findAll();
-//   res.json(blogs);
-// });
-
-// const blogFinder = async (req, res, next) => {
-//   req.blog = await Blog.findByPk(req.params.id);
-//   next();
-// };
-
-// router.get('/:id', blogFinder, async (req, res) => {
-//   if (req.blog) {
-//     res.json(req.blog);
-//   } else {
-//     res.status(404).end();
-//   }
-// });
-
-// router.delete('/:id', blogFinder, async (req, res) => {
-//   await req.blog.destroy();
-//   res.status(204).end();
-// });
-
-// router.put('/:id', blogFinder, async (req, res) => {
-//   if (req.blog) {
-//     const body = req.body;
-//     await req.blog.update(body);
-//     await req.blog.save();
-//     res.status(201).end();
-//   } else {
-//     res.status(404).end();
-//   }
-// });
+router.put('/:username', async (req, res) => {
+  const user = await User.findOne({
+    where: {
+      username: req.params.username,
+    },
+  });
+  console.log(user);
+  user.username = req.body.updatedUsername;
+  user.updatedAt = Date.now();
+  await user.save();
+  res.json(user);
+});
 
 module.exports = router;

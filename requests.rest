@@ -50,3 +50,11 @@ Content-Type: application/json
   "username": "johnmal",
   "password": "john123"
  }
+
+### UPDATE USERNAME
+PUT http://localhost:3001/api/users/johnmal1
+Content-Type: application/json
+
+ {
+  "updatedUsername": "johnmal"
+ }
