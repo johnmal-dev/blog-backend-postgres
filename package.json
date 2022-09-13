@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/johnmal-dev/blog-backend-postgres/issues"
   },
-  "homepage": "https://github.com/johnmal-dev/blog-backend-postgres#readme"
+  "homepage": "https://github.com/johnmal-dev/blog-backend-postgres#readme",
+  "dependencies": {
+    "express-async-errors": "^3.1.1"
+  }
 }
