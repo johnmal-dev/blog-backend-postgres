@@ -8,19 +8,18 @@ router.get('/', async (req, res) => {
   res.json(blogs);
 });
 
-router.post('/', async (req, res) => {
-  // try {
-  //   const blog = await Blog.create(req.body);
-  //   res.json(blog);
-  // } catch (error) {
-  //   res.status(400).json({ error });
-  // }
+router.post('/', async (req, res, next) => {
+  try {
+    const blog = await Blog.create(req.body);
+    res.json(blog);
+  } catch (error) {
+    next(error);
+  }
 });
 
 const blogFinder = async (req, res, next) => {
   try {
     req.blog = await Blog.findByPk(req.params.id);
-    console.log('flag');
     next();
   } catch (error) {
     next(error);
@@ -39,11 +38,18 @@ router.get('/:id', blogFinder, async (req, res, next) => {
   }
 });
 
-router.delete('/:id', blogFinder, async (req, res) => {
-  if (req.blog) {
-    await req.blog.destroy();
+router.delete('/:id', blogFinder, async (req, res, next) => {
+  try {
+    console.log('blog', req.blog);
+    if (req.blog) {
+      await req.blog.destroy();
+      res.status(204).end();
+    } else {
+      res.status(404).send({ error: 'id not found' });
+    }
+  } catch (error) {
+    next(error);
   }
-  res.status(204).end();
 });
 
 router.put('/:id', blogFinder, async (req, res) => {
