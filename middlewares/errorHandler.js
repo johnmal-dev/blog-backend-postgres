@@ -6,6 +6,9 @@ const errorHandler = (error, req, res, next) => {
   if (error.name === 'SequelizeValidationError') {
     return res.status(400).send({ error: 'missing field' });
   }
+  if (error.name === 'TypeError') {
+    return res.status(400).send({ error: 'null not found' });
+  }
   next(error);
 };
 

@@ -9,47 +9,26 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res, next) => {
-  try {
-    const blog = await Blog.create(req.body);
-    res.json(blog);
-  } catch (error) {
-    next(error);
-  }
+  const blog = await Blog.create(req.body);
+  res.json(blog);
 });
 
 const blogFinder = async (req, res, next) => {
-  try {
-    req.blog = await Blog.findByPk(req.params.id);
-    next();
-  } catch (error) {
-    next(error);
-  }
+  req.blog = await Blog.findByPk(req.params.id);
+  next();
 };
 
-router.get('/:id', blogFinder, async (req, res, next) => {
-  try {
-    if (req.blog) {
-      res.json(req.blog);
-    } else {
-      res.status(404).send({ error: 'id not found' });
-    }
-  } catch (error) {
-    next(error);
+router.get('/:id', blogFinder, async (req, res) => {
+  if (req.blog) {
+    res.json(req.blog);
+  } else {
+    res.status(404).end();
   }
 });
 
-router.delete('/:id', blogFinder, async (req, res, next) => {
-  try {
-    console.log('blog', req.blog);
-    if (req.blog) {
-      await req.blog.destroy();
-      res.status(204).end();
-    } else {
-      res.status(404).send({ error: 'id not found' });
-    }
-  } catch (error) {
-    next(error);
-  }
+router.delete('/:id', blogFinder, async (req, res) => {
+  await req.blog.destroy();
+  res.status(204).end();
 });
 
 router.put('/:id', blogFinder, async (req, res) => {
@@ -57,8 +36,10 @@ router.put('/:id', blogFinder, async (req, res) => {
     const body = req.body;
     await req.blog.update(body);
     await req.blog.save();
+    res.status(201).end();
+  } else {
+    res.status(404).end();
   }
-  res.status(204).end();
 });
 
 module.exports = router;
