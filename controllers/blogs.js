@@ -28,4 +28,13 @@ router.delete('/:id', blogFinder, async (req, res) => {
   res.status(204).end();
 });
 
+router.put('/:id', blogFinder, async (req, res) => {
+  if (req.blog) {
+    const body = req.body;
+    await req.blog.update(body);
+    await req.blog.save();
+  }
+  res.status(204).end();
+});
+
 module.exports = router;
