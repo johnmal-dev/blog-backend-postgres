@@ -34,9 +34,9 @@ POST http://localhost:3001/api/users
 Content-Type: application/json
 
  {
-  "name": "John Malapit",
-  "username": "johnmal",
-  "password": "john123"
+  "name": "Zai Dela Cruz",
+  "username": "zdelacruz1@gmail.com",
+  "password": "zai123"
  }
 
 ### GET USER BY ID
