@@ -5,16 +5,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impva
 
 {
   "author": "Wes Bos",
-  "title": "Syntax",
-  "url": "syntax.com"
+  "title": "Simplified",
+  "url": "simplified.com",
+  "likes": 3
 }
 
 ### GET ALL BLOGS
-GET http://localhost:3001/api/blogs?search=sy
+GET http://localhost:3001/api/blogs
 Content-Type: application/json
 
 ### DELETE A BLOG BY ID
-DELETE http://localhost:3001/api/blogs/22
+DELETE http://localhost:3001/api/blogs/26
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5tYWwiLCJpZCI6MSwiaWF0IjoxNjYzMTE1MjA1fQ.dz7CtJ_l22LR1mpOax1EXu55nkTkb7G81AgXavtz-H8
 

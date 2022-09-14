@@ -4,6 +4,7 @@ const router = require('express').Router();
 const { SECRET } = require('../util/config');
 const { Blog, User } = require('../models');
 const { Op } = require('sequelize');
+const { sequelize } = require('../util/db');
 
 const tokenExtractor = (req, res, next) => {
   const authorization = req.get('authorization');
@@ -38,6 +39,7 @@ router.get('/', async (req, res) => {
       attributes: ['name'],
     },
     where,
+    order: [['likes', 'DESC']],
   });
   res.json(blogs);
 });
