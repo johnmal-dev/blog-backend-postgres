@@ -24,6 +24,17 @@ const User = sequelize.define(
     passwordHash: {
       type: DataTypes.STRING,
       allowNull: false,
+      field: 'password_hash',
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'created_at',
+      default: Date.now(),
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: 'updated_at',
+      default: Date.now(),
     },
   },
   {

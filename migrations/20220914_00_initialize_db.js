@@ -51,14 +51,17 @@ module.exports = {
       },
       passwordHash: {
         type: DataTypes.STRING,
+        field: 'password_hash',
         allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,
+        field: 'created_at',
         default: Date.now(),
       },
       updatedAt: {
         type: DataTypes.DATE,
+        field: 'updated_at',
         default: Date.now(),
       },
     });
