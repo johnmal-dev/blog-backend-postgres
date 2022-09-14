@@ -1,13 +1,12 @@
 ### ADD A BLOG
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5tYWwiLCJpZCI6MSwiaWF0IjoxNjYzMDcyOTc1fQ.wOXU6JoUcNHhcKEBXK5EBxtCu0YQ8B14rq_Y6fLx22A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5tYWwiLCJpZCI6MSwiaWF0IjoxNjYzMTE1MjA1fQ.dz7CtJ_l22LR1mpOax1EXu55nkTkb7G81AgXavtz-H8
 
 {
   "author": "Wes Bos",
   "title": "Tasty Treats",
-  "url": "tastytreats.com",
-  "likes": 25
+  "url": "tastytreats.com"
 }
 
 ### GET ALL BLOGS
@@ -15,8 +14,9 @@ GET http://localhost:3001/api/blogs/
 Content-Type: application/json
 
 ### DELETE A BLOG BY ID
-DELETE http://localhost:3001/api/blogs/1123
+DELETE http://localhost:3001/api/blogs/22
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5tYWwiLCJpZCI6MSwiaWF0IjoxNjYzMTE1MjA1fQ.dz7CtJ_l22LR1mpOax1EXu55nkTkb7G81AgXavtz-H8
 
 ### UPDATE A BLOG BY ID
 PUT http://localhost:3001/api/blogs/2

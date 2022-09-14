@@ -19,7 +19,13 @@ const tokenExtractor = (req, res, next) => {
 };
 
 router.get('/', async (req, res) => {
-  const blogs = await Blog.findAll();
+  const blogs = await Blog.findAll({
+    attributes: { exclude: ['userId'] },
+    include: {
+      model: User,
+      attributes: ['name'],
+    },
+  });
   res.json(blogs);
 });
 
@@ -27,8 +33,8 @@ router.post('/', tokenExtractor, async (req, res) => {
   const user = await User.findByPk(req.decodedToken.id);
   const blog = await Blog.create({
     ...req.body,
-    userId: user.id,
     date: new Date(),
+    userId: user.id,
   });
   res.json(blog);
 });
@@ -46,7 +52,10 @@ router.get('/:id', blogFinder, async (req, res) => {
   }
 });
 
-router.delete('/:id', blogFinder, async (req, res) => {
+router.delete('/:id', tokenExtractor, blogFinder, async (req, res) => {
+  const user = await User.findByPk(req.decodedToken.id);
+  if (!(user && req.blog)) res.status(400).end();
+  if (user.id !== req.blog.userId) res.status(401).end();
   await req.blog.destroy();
   res.status(204).end();
 });
