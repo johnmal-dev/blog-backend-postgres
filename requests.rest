@@ -4,10 +4,10 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5tYWwiLCJpZCI6MSwiaWF0IjoxNjYzMTE1MjA1fQ.dz7CtJ_l22LR1mpOax1EXu55nkTkb7G81AgXavtz-H8
 
 {
-  "author": "Wes Bos",
+  "author": "Scott Tolinski",
   "title": "Simplified",
   "url": "simplified.com",
-  "likes": 3
+  "likes": 10
 }
 
 ### GET ALL BLOGS
@@ -59,3 +59,8 @@ Content-Type: application/json
  {
   "updatedUsername": "johnmal"
  }
+
+# GET ALL AUTHORS #
+###
+GET http://localhost:3001/api/authors
+Content-Type: application/json
