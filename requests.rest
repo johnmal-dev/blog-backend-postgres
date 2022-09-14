@@ -10,7 +10,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impva
 }
 
 ### GET ALL BLOGS
-GET http://localhost:3001/api/blogs
+GET http://localhost:3001/api/blogs?search=sy
 Content-Type: application/json
 
 ### DELETE A BLOG BY ID
